@@ -6,3 +6,7 @@ os.makedirs("/output", exist_ok=True)
 
 with open("/output/entry.txt", "w", encoding="utf-8") as f:
     f.write(line)
+
+# Verify the write landed intact.
+with open("/output/entry.txt", encoding="utf-8") as f:
+    assert f.read() == line
